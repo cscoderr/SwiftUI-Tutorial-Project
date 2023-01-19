@@ -7,6 +7,15 @@
 
 import Foundation
 
-struct Cat: Decodable, Identifiable {
-    let id: UUID
+struct Cat: Codable, Equatable, Hashable {
+    let id, url: String
+    let width, height: Double
+    let breeds: [Breed]
+    
+}
+
+struct Breed: Codable, Equatable, Hashable {
+    let id: String
+    let name: String
+    let description: String
 }
