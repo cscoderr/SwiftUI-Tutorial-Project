@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330610DB297AD7C200B5EA12 /* CatListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330610DA297AD7C200B5EA12 /* CatListItemView.swift */; };
+		330610DD297AD85C00B5EA12 /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330610DC297AD85C00B5EA12 /* NoResultView.swift */; };
+		330610E0297AE7AA00B5EA12 /* SystemThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330610DF297AE7AA00B5EA12 /* SystemThemeManager.swift */; };
+		330610E2297AEB8E00B5EA12 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330610E1297AEB8E00B5EA12 /* Theme.swift */; };
 		3325CE4B2978DF65009629ED /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325CE4A2978DF65009629ED /* DetailsView.swift */; };
 		337E66E42977793D00FBB86A /* TheCatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E66E32977793D00FBB86A /* TheCatApp.swift */; };
 		337E66E62977793D00FBB86A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E66E52977793D00FBB86A /* ContentView.swift */; };
@@ -20,9 +24,15 @@
 		337E670629778A0A00FBB86A /* CatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E670529778A0A00FBB86A /* CatViewModel.swift */; };
 		337E670829778A4600FBB86A /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E670729778A4600FBB86A /* AppConfig.swift */; };
 		337E670A29778A7900FBB86A /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E670929778A7900FBB86A /* Cat.swift */; };
+		338DA762297C1D530049F853 /* Favorite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 338DA760297C1D530049F853 /* Favorite.xcdatamodeld */; };
+		338DA783297C1FFF0049F853 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338DA782297C1FFF0049F853 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		330610DA297AD7C200B5EA12 /* CatListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListItemView.swift; sourceTree = "<group>"; };
+		330610DC297AD85C00B5EA12 /* NoResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
+		330610DF297AE7AA00B5EA12 /* SystemThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemThemeManager.swift; sourceTree = "<group>"; };
+		330610E1297AEB8E00B5EA12 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3325CE4A2978DF65009629ED /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		337E66E02977793D00FBB86A /* TheCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		337E66E32977793D00FBB86A /* TheCatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCatApp.swift; sourceTree = "<group>"; };
@@ -37,6 +47,8 @@
 		337E670529778A0A00FBB86A /* CatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewModel.swift; sourceTree = "<group>"; };
 		337E670729778A4600FBB86A /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		337E670929778A7900FBB86A /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		338DA761297C1D530049F853 /* Favorite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorite.xcdatamodel; sourceTree = "<group>"; };
+		338DA782297C1FFF0049F853 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		330610DE297AE79400B5EA12 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				330610DF297AE7AA00B5EA12 /* SystemThemeManager.swift */,
+				330610E1297AEB8E00B5EA12 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		337E66D72977793D00FBB86A = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +90,7 @@
 		337E66E22977793D00FBB86A /* TheCat */ = {
 			isa = PBXGroup;
 			children = (
+				338DA760297C1D530049F853 /* Favorite.xcdatamodeld */,
 				337E66FF2977877700FBB86A /* Services */,
 				337E66F4297779A600FBB86A /* Utils */,
 				337E66F32977799E00FBB86A /* Model */,
@@ -97,6 +119,8 @@
 				337E66FA29777BCD00FBB86A /* FavouriteView.swift */,
 				337E66FD29777D3600FBB86A /* SettingsView.swift */,
 				3325CE4A2978DF65009629ED /* DetailsView.swift */,
+				330610DA297AD7C200B5EA12 /* CatListItemView.swift */,
+				330610DC297AD85C00B5EA12 /* NoResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,8 +144,10 @@
 		337E66F4297779A600FBB86A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				330610DE297AE79400B5EA12 /* Theme */,
 				337E670729778A4600FBB86A /* AppConfig.swift */,
 				337E67022977899100FBB86A /* enum */,
+				338DA782297C1FFF0049F853 /* DataController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -218,10 +244,16 @@
 				337E670A29778A7900FBB86A /* Cat.swift in Sources */,
 				337E66FB29777BCD00FBB86A /* FavouriteView.swift in Sources */,
 				337E66FE29777D3600FBB86A /* SettingsView.swift in Sources */,
+				330610DB297AD7C200B5EA12 /* CatListItemView.swift in Sources */,
+				338DA783297C1FFF0049F853 /* DataController.swift in Sources */,
 				3325CE4B2978DF65009629ED /* DetailsView.swift in Sources */,
 				337E670629778A0A00FBB86A /* CatViewModel.swift in Sources */,
 				337E670829778A4600FBB86A /* AppConfig.swift in Sources */,
+				330610DD297AD85C00B5EA12 /* NoResultView.swift in Sources */,
 				337E66E42977793D00FBB86A /* TheCatApp.swift in Sources */,
+				330610E2297AEB8E00B5EA12 /* Theme.swift in Sources */,
+				338DA762297C1D530049F853 /* Favorite.xcdatamodeld in Sources */,
+				330610E0297AE7AA00B5EA12 /* SystemThemeManager.swift in Sources */,
 				337E67012977879B00FBB86A /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +455,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		338DA760297C1D530049F853 /* Favorite.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				338DA761297C1D530049F853 /* Favorite.xcdatamodel */,
+			);
+			currentVersion = 338DA761297C1D530049F853 /* Favorite.xcdatamodel */;
+			path = Favorite.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 337E66D82977793D00FBB86A /* Project object */;
 }

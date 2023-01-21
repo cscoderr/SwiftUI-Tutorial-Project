@@ -9,14 +9,29 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var vm = CatViewModel()
+    @State private var query = ""
+    @State private var isFavourite = false
+    @Environment(\.managedObjectContext) var fav
+    @FetchRequest(sortDescriptors: [], animation: .default) var likes: FetchedResults<Likes>
+
     var body: some View {
         NavigationStack {
             if let cats = vm.cats {
                 ScrollView(showsIndicators: false) {
                     ForEach(cats, id: \.self.id) { cat in
+                        
                         VStack {
-                            CatListItem(cat: cat)
+                            let res = likes.first(where: {$0.breedID == cat.breeds.first?.id})
+                            CatListItemView(isFavourite: (res != nil) ? true : false, cat: cat)
                                 .padding(.bottom, 10)
+                                .onTapGesture {
+                                    let likes  = Likes(context: fav)
+                                    likes.id = UUID()
+                                    likes.breedID = cat.breeds.first?.id
+                                    likes.name = cat.breeds.first?.name ?? "Unknown"
+                                    likes.imageUrl = cat.url
+                                    try? fav.save()
+                                }
                             
                             
                         }
@@ -26,16 +41,16 @@ struct HomeView: View {
                
                 .navigationTitle("Cats")
                 .background(.gray.opacity(0.2))
-                .navigationBarTitleDisplayMode(.inline)
+//                .navigationBarTitleDisplayMode(.inline)
 //                .navigationDestination(for: Cat.self, destination: { cat in
 //                    DetailsView()
 //                })
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Image(systemName: "person.circle")
-                    }
-
-                }
+//                .toolbar {
+//                    ToolbarItem(placement: .navigationBarLeading) {
+//                        Image(systemName: "person.circle")
+//                    }
+//
+//                }
                 
             } else {
                 VStack {
@@ -51,8 +66,22 @@ struct HomeView: View {
             
             
         }
+        .searchable(text: $query, prompt: "Search your favourite cat")
+//        .onChange(of: query) { newQuery in
+//            vm.searchCats(newQuery)
+//        }
+        .onSubmit(of: .search) {
+            vm.searchCats(query)
+        }
         .onAppear {
             vm.getCats()
+        }
+        .overlay {
+            if let cats = vm.cats {
+                if(cats.isEmpty) {
+                    NoResultView(query: $query)
+                }
+            }
         }
         
     }
@@ -61,37 +90,5 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-    }
-}
-
-struct CatListItem: View {
-    let cat: Cat
-    var str: String {
-        cat.breeds.first?.description ?? ""
-    }
-    var body: some View {
-        HStack(alignment: .top) {
-            AsyncImage(url: .init(string: cat.url)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame( width: 70, height: 70)
-                    .background(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            } placeholder: {
-                ProgressView()
-            }
-            VStack(alignment: .leading) {
-                Text(cat.breeds.first?.name ?? "No Name")
-                    .font(.system(.title2, weight: .bold))
-                
-                Text(str[...str.firstIndex(of: ".")!])
-                    .font(.body)
-            }
-            .padding(.leading, 5)
-            Spacer()
-            
-        }
-        .padding()
-        .background(.white, in: RoundedRectangle(cornerRadius: 15, style: .continuous))
     }
 }
