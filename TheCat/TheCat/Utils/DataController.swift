@@ -12,7 +12,7 @@ class DataController: ObservableObject {
     //Tells core data we want to use Favourite data model
     let container = NSPersistentContainer(name: "Favorite")
     
-    init() {
+    init() {c
         //Used to access our saved data from data model
         container.loadPersistentStores { description, error in
             if let error = error {
