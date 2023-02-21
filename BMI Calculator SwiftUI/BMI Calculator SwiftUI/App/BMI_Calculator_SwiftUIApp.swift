@@ -12,6 +12,7 @@ struct BMI_Calculator_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -12,7 +12,39 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                HStack(spacing: 30) {
+//                Rectangle()
+//                .shadow(color: .white, radius: 20, x: 0, y: 4)
+//                .background(.black)
+//                .overlay {
+//
+//
+//                }
+                HStack(alignment: .center) {
+                    VStack(alignment: .leading) {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.black)
+                            .frame(width: 30, height: 3)
+                            
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.black)
+                            .frame(width: 25, height: 3)
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.black)
+                            .frame(width: 20, height: 3)
+                    }
+                    Spacer()
+                    Text("BMI CALCULATOR")
+                        .font(.title)
+                        .foregroundColor(.black)
+                    Spacer()
+                        
+                    
+                }
+                .padding()
+                .background(.white)
+                .padding(.top, UIApplication.shared.windows.last?.safeAreaInsets.top)
+               
+                HStack(spacing: 10) {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("AppBackgroundActive"))
                         .frame(height: 200)
@@ -42,7 +74,7 @@ struct HomeView: View {
                             }
                         }
                 }
-                .padding(.bottom, 20)
+                .padding([.bottom, .horizontal, .top], 20)
                 
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color("AppBackground"))
@@ -70,9 +102,9 @@ struct HomeView: View {
                         }
                     }
                     
-                    .padding(.bottom, 20)
+                    .padding([.bottom, .horizontal], 20)
                 
-                HStack(spacing: 30) {
+                HStack(spacing: 10) {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("AppBackground"))
                         .frame( height: 200)
@@ -142,13 +174,21 @@ struct HomeView: View {
                             }
                         }
                 }
-                .padding(.bottom, 20)
+                .padding([.bottom, .horizontal], 20)
+                
                 Spacer()
+                
+
                 Button {
                     
                 } label: {
-                    Text("CALCULATE YOUR BMI")
-                        .foregroundColor(.white)
+                    NavigationLink {
+                        ResultView()
+                    } label: {
+                        Text("CALCULATE YOUR BMI")
+                            .foregroundColor(.white)
+                    }
+                    
                         
                 }
                 .padding()
@@ -160,9 +200,8 @@ struct HomeView: View {
                         
                 )
             }
-            .padding([.horizontal, .vertical], 20)
-            .navigationTitle("BMI Calculator")
-            .navigationBarTitleDisplayMode(.inline)
+            .ignoresSafeArea()
+            
         }
         
     }
